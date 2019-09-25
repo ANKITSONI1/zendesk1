@@ -1,0 +1,2001 @@
+Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ Stack Overflow
+Products
+Customers
+Use cases
+Search…
+Log in Sign up
+Home
+PUBLIC
+Stack Overflow
+Tags
+Users
+Jobs
+TEAMS
+What’s this?
+First 10 Free
+Accessing commit history from github via terminal?
+Ask Question
+Asked 5 years ago
+Active 5 years ago
+Viewed 1k times
+
+3
+
+
+5
+Need some quick help. Novice terminal user here. Trying to use these instructions: https://developer.github.com/v3/repos/statistics/#commit-activity to get commit history for a specific user.
+
+However, I don't know what to do with this:
+
+GET /repos/:owner/:repo/stats/contributors
+When I replace the owner and repo with the specific names i'm using, nothing happens because I get this error in my terminal:
+
+-bash: GET: command not found
+This is a very time sensitive issue, help! Thanks!
+
+macos git github terminal github-api
+shareimprove this question
+asked Sep 23 '14 at 2:32
+
+user3508494
+2566 bronze badges
+1
+You need to make an HTTP GET request using curl. – SLaks Sep 23 '14 at 2:36
+I tried this and it didn't work: "curl api.github.com/repos/:(u/n here)/:(repository here)/stats/contributors" – user3508494 Sep 23 '14 at 2:48 
+What error did you get? – SLaks Sep 23 '14 at 2:55
+Says it's not found and gives a link to their developer github page. – user3508494 Sep 23 '14 at 3:01
+Finally got it. Typo, was including the ":"! – user3508494 Sep 23 '14 at 3:06
+add a comment
+1 Answer
+activeoldestvotes
+
+2
+
+You can follow this curl tutorial using GitHub's API to see how you would translate
+
+GET /repos/:owner/:repo/stats/contributors
+As you notice in the comments, the ":" shouldn't be included.
+
+curl --include https://api.github.com/users/caspyin
+Pass user credential to basic auth to access protected resources like a users starred gists, or private info associated with their profile
+
+curl --user "caspyin:PASSWD" https://api.github.com/gists/starred
+curl --user "caspyin:PASSWD" https://api.github.com/users/caspyin
+Passing just the username without the colon (:) will cause you to be prompted for your account password.
+This avoids having your password in your command line history
+
+curl --user "caspyin" https://api.github.com/users/caspyin
+In your case, replacing <owner> and <reponame> by the right owner and repo names:
+
+curl https://api.github.com/repos/<owner>/<reponame>/stats/contributors
+shareimprove this answer
+edited May 23 '17 at 12:17
+
+Community♦
+111 silver badge
+answered Sep 23 '14 at 5:53
+
+VonC
+894k328328 gold badges29052905 silver badges34903490 bronze badges
+add a comment
+Your Answer
+Sign up or log in
+ Sign up using Google
+ Sign up using Facebook
+ Sign up using Email and Password
+Post as a guest
+Name
+Email
+Required, but never shown
+
+Post Your Answer
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Not the answer you're looking for? Browse other questions tagged macos git github terminal github-api or ask your own question.
+Blog
+Meet the Developer Who Took Stack Overflow from Screen to Stage
+Announcing Stack Overflow’s New CEO, Prashanth Chandrasekar!
+Featured on Meta
+Stack Exchange and Stack Overflow are moving to CC BY-SA 4.0
+Unicorn Meta Zoo #9: How do we handle problem users?
+2020 Developer Survey: any topic suggestions?
+Hopper
+Hopper
+Montréal, QC, Canada
+We have great benefits!
+Team lunches, off-site activities and much more!
+Easy commute with a paid-for public transportation or paid parking
+Parental Leave
+Dynamic and entrepreneurial team
++ 4 more benefits
+Learn more
+Looking for a job?
+Front end Developer
+Tempo SoftwareMontreal, QC, Canada
+reactjsjavascript
+Senior Software Engineer - Java/Spring
+Magic Memories Digital, Ltd.No office location
+REMOTE
+javaspring-boot
+Related
+1601
+How can I remove a commit on GitHub?
+2963
+Delete commits from a branch in Git
+704
+Link to the issue number on GitHub within a commit message
+1585
+Branch from a previous commit using Git
+1321
+How to grep (search) committed code in the Git history?
+1147
+Git: How to find a deleted file in the project commit history?
+271
+Remove folder and its contents from git/GitHub's history
+594
+Delete forked repo from GitHub
+1427
+Remove files from Git commit
+2
+Get commit history of all the contributors of a repository
+Hot Network Questions
+How big would the ice ball have to be to deliver all the water at once?
+Isn't the detector always measuring, and thus always collapsing the state?
+Can you cure a Gorgon's Petrifying Breath before it finishes turning a target to stone?
+Can I pay some of the cost of an activated ability lots of times to get more out of the effect?
+What could cause lower torque than normal during cruise in a King Air 300?
+Is it possible to take a database offline when doing a backup using an SQL job?
+How to study endgames?
+Verb ending in -ん with positive meaning?
+Detail vs. filler
+Do my potential customers need to understand the "meaning" of a logo, or just recognize it?
+How to stop the death waves in my city?
+Delete n lines skip 1 line script
+A word that refers to saying something in an attempt to anger or embarrass someone into doing something that they don’t want to do?
+How do I introduce dark themes?
+Avoiding dust scattering when you drill
+Is it possible for a company to grow but its stock price stays the same or decrease?
+Accessing JSON fields in html of LWC
+How important is knowledge of trig identities for use in Calculus
+How do I automatically add linebreaks "\\" to the end of each row of a tabular environment?
+How to compare integers in TeX?
+Incomplete \iffalse: How to shift a scope in polar coordinate?
+If someone asks a question using “quién”, how can one shortly respond?
+Why aren't faces sharp in my f/1.8 portraits even though I'm carefully using center-point autofocus?
+To what degree did the Supreme Court limit Boris Johnson's ability to prorogue?
+ Question feed
+
+STACK OVERFLOW
+Questions
+Jobs
+Developer Jobs Directory
+Salary Calculator
+Help
+Mobile
+Disable Responsiveness
+PRODUCTS
+Teams
+Talent
+Advertising
+Enterprise
+COMPANY
+About
+Press
+Work Here
+Legal
+Privacy Policy
+Contact Us
+STACK EXCHANGE
+NETWORK
+Technology
+Life / Arts
+Culture / Recreation
+Science
+Other
+Blog
+Facebook
+Twitter
+LinkedIn
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under cc by-sa 4.0 with attribution required. rev 2019.9.24.35000
+
+ 
