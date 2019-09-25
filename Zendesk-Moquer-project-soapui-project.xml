@@ -5,7 +5,7 @@
     <con:description>defaultDescription</con:description>
     <con:settings>
       <con:setting id="CreateWadlDocumentationAction@report-directory">/Users/ankit.soni/wsdl</con:setting>
-    </con:settings>
+    </con:settings>xsxs
     <con:definitionCache type="TEXT" rootPart=""/>
     <con:endpoints>
       <con:endpoint>http://localhost:8089/</con:endpoint>
